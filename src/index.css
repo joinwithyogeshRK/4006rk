@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Main Colors - Based on provided color palette */
+  --primary: 210 67% 59%;        /* #4A90E2 - Blue */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 165 68% 60%;       /* #50E3C2 - Mint */
+  --secondary-foreground: 0 0% 0%;
+  --accent: 0 100% 71%;           /* #FF6B6B - Red accent */
+  --accent-foreground: 0 0% 100%;
+  
+  /* System Colors */
+  --success: 142 72% 29%;
+  --success-foreground: 210 40% 98%;
+  --success-muted: 142 72% 90%;
+
+  --warning: 43 100% 52%;         /* #FFC107 - Yellow */
+  --warning-foreground: 48 96% 98%;
+  --warning-muted: 43 100% 90%;
+
+  --error: 0 100% 71%;            /* #FF6B6B - Red */
+  --error-foreground: 210 40% 98%;
+  --error-muted: 0 100% 90%;
+
+  --info: 210 67% 59%;            /* #4A90E2 - Blue */
+  --info-foreground: 0 0% 100%;
+  --info-muted: 210 67% 90%;
+  
+  /* Surface Colors */
+  --surface: 220 13% 98%;         /* #F5F7FA - Light gray */
+  --surface-foreground: 210 15% 23%;  /* #323B43 - Dark gray */
+  --surface-muted: 220 13% 94%;
+
+  --background: 220 13% 98%;      /* #F5F7FA - Light gray */
+  --foreground: 210 15% 23%;      /* #323B43 - Dark gray */
+
+  --card: 0 0% 100%;
+  --card-foreground: 210 15% 23%; /* #323B43 - Dark gray */
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 15% 23%; /* #323B43 - Dark gray */
+
+  --muted: 220 13% 94%;
+  --muted-foreground: 210 15% 45%;
+
+  /* Color Scales */
+  --primary-50: 210 67% 97%;
+  --primary-100: 210 67% 94%;
+  --primary-200: 210 67% 90%;
+  --primary-300: 210 67% 80%;
+  --primary-400: 210 67% 70%;
+  --primary-500: 210 67% 59%;     /* #4A90E2 */
+  --primary-600: 210 67% 50%;
+  --primary-700: 210 67% 40%;
+  --primary-800: 210 67% 30%;
+  --primary-900: 210 67% 20%;
+  
+  --secondary-50: 165 68% 95%;
+  --secondary-100: 165 68% 90%;
+  --secondary-200: 165 68% 80%;
+  --secondary-300: 165 68% 70%;
+  --secondary-400: 165 68% 65%;
+  --secondary-500: 165 68% 60%;   /* #50E3C2 */
+  --secondary-600: 165 68% 50%;
+  --secondary-700: 165 68% 40%;
+  --secondary-800: 165 68% 30%;
+  --secondary-900: 165 68% 20%;
+  
+  --accent-50: 0 100% 97%;
+  --accent-100: 0 100% 94%;
+  --accent-200: 0 100% 90%;
+  --accent-300: 0 100% 85%;
+  --accent-400: 0 100% 78%;
+  --accent-500: 0 100% 71%;       /* #FF6B6B */
+  --accent-600: 0 100% 65%;
+  --accent-700: 0 100% 55%;
+  --accent-800: 0 100% 45%;
+  --accent-900: 0 100% 35%;
+  
+  /* System Variables */
+  --border: 220 13% 90%;
+  --input: var(--border);
+  --ring: var(--primary);
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+.dark {
+  --background: 210 15% 10%;
+  --foreground: 220 13% 95%;
+
+  --card: 210 15% 15%;
+  --card-foreground: 220 13% 95%;
+
+  --popover: 210 15% 15%;
+  --popover-foreground: 220 13% 95%;
+
+  --primary: 210 67% 65%;
+  --primary-foreground: 0 0% 0%;
+
+  --secondary: 165 68% 55%;
+  --secondary-foreground: 0 0% 0%;
+
+  --muted: 210 15% 20%;
+  --muted-foreground: 210 15% 70%;
+
+  --accent: 0 100% 75%;
+  --accent-foreground: 0 0% 0%;
+
+  --border: 210 15% 25%;
+  --input: 210 15% 25%;
+  --ring: 210 67% 65%;
+  
+  /* Dark Mode System Colors */
+  --success: 142 72% 45%;
+  --warning: 43 100% 60%;
+  --error: 0 100% 75%;
+  --info: 210 67% 65%;
+  
+  --surface: 210 15% 15%;
+  --surface-foreground: 220 13% 95%;
+  --surface-muted: 210 15% 20%;
+}
+
+@layer components {
+  /* Task Card Component */
+  .task-card {
+    @apply bg-card text-card-foreground rounded-md shadow-sm p-4 mb-3 border border-border transition-all duration-200 hover:shadow-md;
+  }
+  
+  /* Task Input Component */
+  .task-input {
+    @apply w-full bg-surface text-surface-foreground rounded-md border border-input px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+  
+  /* Primary Button Component */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground rounded-md px-4 py-2 font-medium shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary/50 active:bg-primary-700 disabled:opacity-50 transition-colors;
+  }
+  
+  /* Secondary Button Component */
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground rounded-md px-4 py-2 font-medium shadow-sm hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-secondary/50 active:bg-secondary-700 disabled:opacity-50 transition-colors;
+  }
+  
+  /* Danger Button Component */
+  .btn-danger {
+    @apply bg-error text-error-foreground rounded-md px-4 py-2 font-medium shadow-sm hover:bg-error/90 focus:outline-none focus:ring-2 focus:ring-error/50 active:bg-error/80 disabled:opacity-50 transition-colors;
+  }
+  
+  /* Ghost Button Component */
+  .btn-ghost {
+    @apply bg-transparent text-foreground hover:bg-muted rounded-md px-4 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 transition-colors;
+  }
+  
+  /* Category Badge Component */
+  .category-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-muted text-muted-foreground;
+  }
+  
+  /* Priority Indicator Components */
+  .priority-high {
+    @apply inline-block w-2 h-2 rounded-full bg-error;
+  }
+  
+  .priority-medium {
+    @apply inline-block w-2 h-2 rounded-full bg-warning;
+  }
+  
+  .priority-low {
+    @apply inline-block w-2 h-2 rounded-full bg-success;
+  }
+  
+  /* Checkbox Component */
+  .task-checkbox {
+    @apply h-5 w-5 rounded border-2 border-muted-foreground text-primary focus:ring-primary focus:ring-offset-0;
+  }
+  
+  /* Header Component */
+  .app-header {
+    @apply bg-surface shadow-sm py-3 px-4 flex items-center justify-between;
+  }
+  
+  /* Neumorphic Card Style */
+  .neumorphic-card {
+    @apply bg-surface rounded-lg shadow-[5px_5px_10px_rgba(0,0,0,0.05),-5px_-5px_10px_rgba(255,255,255,0.8)] dark:shadow-[5px_5px_10px_rgba(0,0,0,0.2),-5px_-5px_10px_rgba(255,255,255,0.05)];
+  }
+}
+
+/* Custom Animations */
+.task-complete {
+  animation: taskComplete 0.3s ease-in-out;
+}
+
+@keyframes taskComplete {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.swipe-action {
+  transform: translateX(0);
+  transition: transform 0.2s ease-out;
+}
+
+.swipe-action-revealed {
+  transform: translateX(-80px);
+}
